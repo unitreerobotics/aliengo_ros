@@ -13,10 +13,10 @@
             <axis xyz="1 0 0"/>
             <dynamics damping="${damping}" friction="${friction}"/>
             <xacro:if value="${(mirror_dae == 'true')}">
-                <limit effort="${hip_torque_max}" velocity="${hip_velocity_max}" lower="${hip_min*PI/180.0}" upper="${hip_max*PI/180.0}"/>
+                <limit effort="${hip_torque_max}" velocity="${hip_velocity_max}" lower="${hip_position_min}" upper="${hip_position_max}"/>
             </xacro:if>
             <xacro:if value="${(mirror_dae == 'false')}">
-                <limit effort="${hip_torque_max}" velocity="${hip_velocity_max}" lower="${-hip_max*PI/180.0}" upper="${-hip_min*PI/180.0}"/>
+                <limit effort="${hip_torque_max}" velocity="${hip_velocity_max}" lower="${-hip_position_max}" upper="${-hip_position_min}"/>
             </xacro:if>            
         </joint>
 
@@ -115,7 +115,7 @@
             <child link="${name}_calf"/>
             <axis xyz="0 1 0"/>
             <dynamics damping="${damping}" friction="${friction}"/>
-            <limit effort="${calf_torque_max}" velocity="${calf_velocity_max}" lower="${calf_min*PI/180.0}" upper="${calf_max*PI/180.0}"/>
+            <limit effort="${calf_torque_max}" velocity="${calf_velocity_max}" lower="${calf_position_min}" upper="${calf_position_max}"/>
         </joint>
 
         <link name="${name}_calf">
