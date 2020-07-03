@@ -7,10 +7,10 @@
     <xacro:include filename="$(find aliengo_description)/xacro/leg.xacro"/>
     <!-- <xacro:include filename="$(find aliengo_gazebo)/launch/gazebo.xacro"/> -->
 
-    <!-- Rollover Protection mode will add an additional stick on the top, use "true" or "false" to switch it. -->
-    <xacro:property name="rolloverProtection" value="false"/>
+    <!-- Rollover Protection mode will add an additional stick on the top, use "True" or "False" to switch it. -->
+    <xacro:property name="rolloverProtection" value="False"/>
 
-    <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
+    <!-- Debug mode will hung up the robot, use "True" or "False" to switch it. -->
     <!-- <xacro:if value="$(arg DEBUG)">
         <link name="world"/>
         <joint name="base_static_joint" type="fixed">
@@ -65,7 +65,7 @@
         </inertial>
     </link>
 
-    <xacro:if value="${(rolloverProtection == 'true')}">
+    <xacro:if value="${(rolloverProtection == 'True')}">
         <joint name="stick_joint" type="fixed">
             <parent link="trunk"/>
             <child link="stick_link"/>
@@ -123,19 +123,19 @@
         </collision>
     </link>
 
-    <xacro:leg name="FR" mirror="-1" mirror_dae="false" front_hind="1" front_hind_dae="true">
+    <xacro:leg name="FR" mirror="-1" mirror_dae="False" front_hind="1" front_hind_dae="True">
         <origin rpy="0 0 0" xyz="${leg_offset_x} ${-leg_offset_y} 0"/>
     </xacro:leg>
 
-    <xacro:leg name="FL" mirror="1" mirror_dae="true" front_hind="1" front_hind_dae="true">
+    <xacro:leg name="FL" mirror="1" mirror_dae="True" front_hind="1" front_hind_dae="True">
         <origin rpy="0 0 0" xyz="${leg_offset_x} ${leg_offset_y} 0"/>
     </xacro:leg>
 
-    <xacro:leg name="RR" mirror="-1" mirror_dae="false" front_hind="-1" front_hind_dae="false">
+    <xacro:leg name="RR" mirror="-1" mirror_dae="False" front_hind="-1" front_hind_dae="False">
         <origin rpy="0 0 0" xyz="${-leg_offset_x} ${-leg_offset_y} 0"/>
     </xacro:leg>
 
-    <xacro:leg name="RL" mirror="1" mirror_dae="true" front_hind="-1" front_hind_dae="false">
+    <xacro:leg name="RL" mirror="1" mirror_dae="True" front_hind="-1" front_hind_dae="False">
         <origin rpy="0 0 0" xyz="${-leg_offset_x} ${leg_offset_y} 0"/>
     </xacro:leg>
 
